@@ -42,18 +42,28 @@ function checkIng() {
   var inputCountry = inputElementCountry.property("value");
   var inputShape = inputElementShape.property("value");
   
-  
   var filteredData = [];
   
   if (inputDate != "") {
     tbody.html("");
     filteredData = tableData.filter(sighting => sighting.datetime === inputDate);
-    filteredData.forEach(appendTable);  
+    filteredData.forEach(appendTable); 
+    console.log(1)
   }
-  
+  else {
+    
+    //existing table should be cleaned (that applies also in cases if
+    //there was not empty user`s input before without refreshing the web-page)
+    tbody.html("");
+    
+    //full data appends to the html table
+    filteredData = tableData; 
+    filteredData.forEach(appendTable);
+   }
+
   if (inputCity != "") {
       tbody.html(""); 
-      filteredData = tableData.filter(sighting => sighting.city === inputCity);
+      filteredData = filteredData.filter(sighting => sighting.city === inputCity);
       filteredData.forEach(appendTable);
       console.log(inputCity);
   }
@@ -62,18 +72,20 @@ function checkIng() {
     tbody.html("");
     filteredData = tableData.filter(sighting => sighting.datetime === inputState);
     filteredData.forEach(appendTable);
+    console.log(inputState)
   }
-
+  
   if (inputCountry != "") {
     tbody.html("");
     filteredData = tableData.filter(sighting => sighting.datetime === inputCountry);
     filteredData.forEach(appendTable);
   }
- 
+  
+  
   if (inputShape != "") {
     tbody.html("");
     filteredData = tableData.filter(sighting => sighting.datetime === inputShape);
     filteredData.forEach(appendTable);
   }
-
+  
 }

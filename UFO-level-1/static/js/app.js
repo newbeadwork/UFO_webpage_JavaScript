@@ -11,6 +11,8 @@ function appendTable(sightingUFO) {
         row.append("td").text(value);
     })
 }
+
+//calling appendTable function for each object in data.js
 tableData.forEach(appendTable);
 
 //variable for a filter data button
