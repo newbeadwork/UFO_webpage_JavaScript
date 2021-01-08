@@ -37,9 +37,9 @@ function checkIng() {
   var inputValue = inputElement.property("value");
 
   console.log(inputValue);
-}
  
 
-  //var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
+  var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
 
-  //console.log(filteredData);
+  console.log(filteredData);
+}
