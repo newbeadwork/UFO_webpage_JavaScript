@@ -35,14 +35,14 @@ function checkIng() {
   // Get the value property of the input element
   var inputValue = inputElement.property("value");
 
-  console.log(inputValue);
+
   
   tbody.html("");
 
   var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
   
   filteredData.forEach(appendTable);
-  console.log(filteredData);
+
 
 
 }
