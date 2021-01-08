@@ -37,9 +37,18 @@ function checkIng() {
   var inputValue = inputElement.property("value");
 
   console.log(inputValue);
- 
+  
+  tbody.html("");
 
   var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
-
+  
+  filteredData.forEach(function(sightingUFO) {
+    row = tbody.append("tr");
+    Object.entries(sightingUFO).forEach(function([key, value]) {
+        row.append("td").text(value);
+    });
+});
   console.log(filteredData);
+
+
 }
