@@ -3,17 +3,16 @@ var tableData = data;
 
 // YOUR CODE HERE!
 
-
-
 var tbody = d3.select("tbody");
 
-tableData.forEach(function(sightingUFO) {
+function appendTable(sightingUFO) {
     row = tbody.append("tr");
     Object.entries(sightingUFO).forEach(function([key, value]) {
         row.append("td").text(value);
-    });
-});
+    })
+}
 
+tableData.forEach(appendTable);
 
 var button = d3.select("#filter-btn");
 
@@ -42,12 +41,7 @@ function checkIng() {
 
   var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
   
-  filteredData.forEach(function(sightingUFO) {
-    row = tbody.append("tr");
-    Object.entries(sightingUFO).forEach(function([key, value]) {
-        row.append("td").text(value);
-    });
-});
+  filteredData.forEach(appendTable);
   console.log(filteredData);
 
 
