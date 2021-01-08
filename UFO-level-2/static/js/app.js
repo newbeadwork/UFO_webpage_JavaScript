@@ -10,7 +10,7 @@ function appendTable(sightingUFO) {
         row.append("td").text(value);
     })
 }
-
+//!!!!!!!!!
 tableData.forEach(appendTable);
 
 var button = d3.select("#filter-btn");
@@ -29,19 +29,33 @@ function checkIng() {
   d3.event.preventDefault();
   
   // Select the input element and get the raw HTML node
-  var inputElement = d3.select("#datetime");
-
+  var inputElementDate = d3.select("#datetime");
+  var inputElementCity = d3.select("#city");
   // Get the value property of the input element
-  var inputValue = inputElement.property("value");
-
-
+  var inputDate = inputElementDate.property("value");
+  var inputCity = inputElementCity.property("value");
+  var inputState = inputElementState.property("value");
+  var inputCountry = inputElementCountry.property("value");
+  var inputShape = inputElementShape.property("value");
   
-  tbody.html("");
-
-  var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
   
-  filteredData.forEach(appendTable);
-
+  var filteredData = [];
+  
+  if (inputDate != "") {
+    tbody.html("");
+    filteredData = tableData.filter(sighting => sighting.datetime === inputDate);
+    filteredData.forEach(appendTable);
+    
+  }
+  
+  if (inputCity != "") {
+      tbody.html(""); 
+      filteredData = tableData.filter(sighting => sighting.city === inputCity);
+      filteredData.forEach(appendTable);
+      console.log(inputCity);
+  }
+  
+   
 
 
 }

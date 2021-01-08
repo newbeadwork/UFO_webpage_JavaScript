@@ -11,7 +11,6 @@ function appendTable(sightingUFO) {
         row.append("td").text(value);
     })
 }
-
 tableData.forEach(appendTable);
 
 var button = d3.select("#filter-btn");
@@ -29,6 +28,7 @@ function checkIng() {
   // Prevent the page from refreshing
   d3.event.preventDefault();
   
+  var table = tableData.forEach(appendTable);
   // Select the input element and get the raw HTML node
   var inputElement = d3.select("#datetime");
 
