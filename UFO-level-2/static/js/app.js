@@ -70,21 +70,21 @@ function checkIng() {
   
   if (inputState != "") {
     tbody.html("");
-    filteredData = tableData.filter(sighting => sighting.datetime === inputState);
+    filteredData = filteredData.filter(sighting => sighting.state === inputState);
     filteredData.forEach(appendTable);
     console.log(inputState)
   }
   
   if (inputCountry != "") {
     tbody.html("");
-    filteredData = tableData.filter(sighting => sighting.datetime === inputCountry);
+    filteredData = filteredData.filter(sighting => sighting.country === inputCountry);
     filteredData.forEach(appendTable);
   }
   
   
   if (inputShape != "") {
     tbody.html("");
-    filteredData = tableData.filter(sighting => sighting.datetime === inputShape);
+    filteredData = filteredData.filter(sighting => sighting.shape === inputShape);
     filteredData.forEach(appendTable);
   }
   
