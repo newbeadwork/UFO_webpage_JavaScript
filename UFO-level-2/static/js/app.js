@@ -31,6 +31,10 @@ function checkIng() {
   // Select the input element and get the raw HTML node
   var inputElementDate = d3.select("#datetime");
   var inputElementCity = d3.select("#city");
+  var inputElementState = d3.select("#state");
+  var inputElementCountry = d3.select("#country");
+  var inputElementShape = d3.select("#shape");
+
   // Get the value property of the input element
   var inputDate = inputElementDate.property("value");
   var inputCity = inputElementCity.property("value");
@@ -44,8 +48,7 @@ function checkIng() {
   if (inputDate != "") {
     tbody.html("");
     filteredData = tableData.filter(sighting => sighting.datetime === inputDate);
-    filteredData.forEach(appendTable);
-    
+    filteredData.forEach(appendTable);  
   }
   
   if (inputCity != "") {
@@ -55,7 +58,22 @@ function checkIng() {
       console.log(inputCity);
   }
   
-   
+  if (inputState != "") {
+    tbody.html("");
+    filteredData = tableData.filter(sighting => sighting.datetime === inputState);
+    filteredData.forEach(appendTable);
+  }
 
+  if (inputCountry != "") {
+    tbody.html("");
+    filteredData = tableData.filter(sighting => sighting.datetime === inputCountry);
+    filteredData.forEach(appendTable);
+  }
+ 
+  if (inputShape != "") {
+    tbody.html("");
+    filteredData = tableData.filter(sighting => sighting.datetime === inputShape);
+    filteredData.forEach(appendTable);
+  }
 
 }

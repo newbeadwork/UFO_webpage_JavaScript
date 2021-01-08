@@ -28,21 +28,25 @@ function checkIng() {
   // Prevent the page from refreshing
   d3.event.preventDefault();
   
-  var table = tableData.forEach(appendTable);
+  // var table = tableData.forEach(appendTable);
   // Select the input element and get the raw HTML node
   var inputElement = d3.select("#datetime");
 
   // Get the value property of the input element
-  var inputValue = inputElement.property("value");
+  var inputDate = inputElement.property("value");
 
-
+  if (inputDate != "") {
   
   tbody.html("");
 
-  var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
+  var filteredData = tableData.filter(sighting => sighting.datetime === inputDate);
   
   filteredData.forEach(appendTable);
-
-
-
+  }
+ 
+  else {
+  tbody.html("");
+  console.log("False")
+  tableData.forEach(appendTable);  
+ }
 }
